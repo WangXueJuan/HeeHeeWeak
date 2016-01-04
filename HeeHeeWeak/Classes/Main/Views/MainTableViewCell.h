@@ -1,5 +1,5 @@
 //
-//  MainViewController.h
+//  MainTableViewCell.h
 //  HeeHeeWeak
 //
 //  Created by scjy on 16/1/4.
@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface MainViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
+@interface MainTableViewCell : UITableViewCell
 
 @end

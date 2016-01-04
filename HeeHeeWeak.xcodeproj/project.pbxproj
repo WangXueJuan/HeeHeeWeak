@@ -18,6 +18,8 @@
 		7AAA00C81C3A5064005500C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AAA00C71C3A5064005500C2 /* Main.storyboard */; };
 		7AAA00CA1C3A5075005500C2 /* Discover.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AAA00C91C3A5075005500C2 /* Discover.storyboard */; };
 		7AAA00CC1C3A508B005500C2 /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AAA00CB1C3A508B005500C2 /* Mine.storyboard */; };
+		7AAA00D01C3A7669005500C2 /* MainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAA00CE1C3A7669005500C2 /* MainTableViewCell.m */; };
+		7AAA00D11C3A7669005500C2 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AAA00CF1C3A7669005500C2 /* MainTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,9 @@
 		7AAA00C71C3A5064005500C2 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		7AAA00C91C3A5075005500C2 /* Discover.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Discover.storyboard; sourceTree = "<group>"; };
 		7AAA00CB1C3A508B005500C2 /* Mine.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Mine.storyboard; sourceTree = "<group>"; };
+		7AAA00CD1C3A7669005500C2 /* MainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewCell.h; sourceTree = "<group>"; };
+		7AAA00CE1C3A7669005500C2 /* MainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewCell.m; sourceTree = "<group>"; };
+		7AAA00CF1C3A7669005500C2 /* MainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
 		9A5DD4F7E6B7C95E16015ED9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5FFF3A08D42121586FC79F6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,6 +175,9 @@
 			isa = PBXGroup;
 			children = (
 				7AAA00C71C3A5064005500C2 /* Main.storyboard */,
+				7AAA00CD1C3A7669005500C2 /* MainTableViewCell.h */,
+				7AAA00CE1C3A7669005500C2 /* MainTableViewCell.m */,
+				7AAA00CF1C3A7669005500C2 /* MainTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -300,6 +308,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AAA00D11C3A7669005500C2 /* MainTableViewCell.xib in Resources */,
 				7AAA00C81C3A5064005500C2 /* Main.storyboard in Resources */,
 				7AAA00CA1C3A5075005500C2 /* Discover.storyboard in Resources */,
 				7AAA00CC1C3A508B005500C2 /* Mine.storyboard in Resources */,
@@ -363,6 +372,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AAA00D01C3A7669005500C2 /* MainTableViewCell.m in Sources */,
 				7AAA009A1C3A1C3A005500C2 /* AppDelegate.m in Sources */,
 				7AAA00C21C3A4E36005500C2 /* DiscoverViewController.m in Sources */,
 				7AAA00C41C3A4E36005500C2 /* MineViewController.m in Sources */,
