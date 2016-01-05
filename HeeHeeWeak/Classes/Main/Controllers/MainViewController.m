@@ -9,6 +9,7 @@
 #import "MainViewController.h"
 #import "MainTableViewCell.h"
 #import "MainModel.h"
+#import <SDWebImage/UIImageView+WebCache.h>
 @interface MainViewController ()
 
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
@@ -18,6 +19,8 @@
 @property(nonatomic, strong) NSMutableArray *activityArray;
 //推荐专题数据数组
 @property(nonatomic, strong) NSMutableArray *themeArray;
+//广告数据数组
+@property(nonatomic, strong) NSMutableArray *adArray;
 @end
 
 @implementation MainViewController
@@ -25,7 +28,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
+
     //left
     UIBarButtonItem *leftBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"北京" style:UIBarButtonItemStylePlain target:self action:@selector(selectCityAction:)];
     leftBarBtn.tintColor = [UIColor whiteColor];
@@ -71,6 +74,25 @@
     return 203;
 }
 
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section{
+    return 26;
+}
+
+//自定义分区头部
+-(UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
+    UIView *view = [[UIView alloc] init];
+    UIImageView *sectionView = [[UIImageView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width / 2 - 160, 5, 320, 16)];
+    if (section == 0) {
+        UIImage *image = [UIImage imageNamed:@"home_recommed_ac"];
+        sectionView.backgroundColor = [UIColor colorWithPatternImage:image];
+    } else {
+        UIImage *image = [UIImage imageNamed:@"home_recommd_rc"];
+        sectionView.backgroundColor = [UIColor colorWithPatternImage:image];
+    }
+    [view addSubview:sectionView];
+    return view;
+}
+
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
     return self.listArray.count;
 
@@ -88,10 +110,49 @@
 
 //自定义tableView的分区头部
 - (void)configTableViewHeaderView{
-    UIView *view = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 343)];
-    view.backgroundColor = [UIColor greenColor];
+    UIView *tableViewHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 343)];
+
+    UIScrollView *scrollView = [[UIScrollView alloc] initWithFrame:CGRectMake(0, 0, [UIScreen mainScreen].bounds.size.width, 186)];
+    scrollView.contentSize = CGSizeMake([UIScreen mainScreen].bounds.size.width * self.adArray.count, 186);
+    //滑动时显示整张图片
+    scrollView.pagingEnabled = YES;
+    
+    for (int i = 0; i < self.adArray.count; i++) {
+        UIImageView *imageView = [[UIImageView alloc] initWithFrame:CGRectMake([UIScreen mainScreen].bounds.size.width * i, 0, [UIScreen mainScreen].bounds.size.width, 186)];
+        [imageView sd_setImageWithURL:[NSURL URLWithString:self.adArray[i]] placeholderImage:nil];
+        [scrollView addSubview:imageView];
+    }
+    [tableViewHeaderView addSubview:scrollView];
+    
+    
+    //按钮
+    for (int i = 0; i < 4; i++) {
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.frame = CGRectMake([UIScreen mainScreen].bounds.size.width * i / 4, 186, [UIScreen mainScreen].bounds.size.width / 4, [UIScreen mainScreen].bounds.size.width / 4);
+        NSString *imageStr = [NSString stringWithFormat:@"home_icon_%02d",i + 1];
+        [btn setImage:[UIImage imageNamed:imageStr] forState:UIControlStateNormal];
+        btn.tag = 100 + i;
+        [btn addTarget:self action:@selector(mainActivityButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        [tableViewHeaderView addSubview:btn];
+    }
+    
+    //精选活动按钮
+    UIButton *ActivityBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    ActivityBtn.frame = CGRectMake(0, 186 + [UIScreen mainScreen].bounds.size.width / 4, [UIScreen mainScreen].bounds.size.width / 2 ,343 - 186 -[UIScreen mainScreen].bounds.size.width / 4);
+    [ActivityBtn setImage:[UIImage imageNamed:@"home_huodong"] forState:UIControlStateNormal];
+    [ActivityBtn addTarget:self action:@selector(goodActivityButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [tableViewHeaderView addSubview:ActivityBtn];
+    //热门专题按钮
+    UIButton *themeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    themeBtn.frame = CGRectMake([UIScreen mainScreen].bounds.size.width / 2, 186 + [UIScreen mainScreen].bounds.size.width / 4, [UIScreen mainScreen].bounds.size.width / 2 ,343 - 186 -[UIScreen mainScreen].bounds.size.width / 4);
+    [themeBtn setImage:[UIImage imageNamed:@"home_zhuanti"] forState:UIControlStateNormal];
+    [themeBtn addTarget:self action:@selector(goodActivityButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [tableViewHeaderView addSubview:themeBtn];
+    
+    
     //tableView自身有一个区头和区尾，里面的每个分区也有一个分区头和分区尾
-    self.tableView.tableHeaderView = view;
+    self.tableView.tableHeaderView = tableViewHeaderView;
+    
 }
 
 - (void)requestModel{
@@ -99,7 +160,7 @@
     AFHTTPSessionManager *sessionManger = [AFHTTPSessionManager manager];
     sessionManger.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
     [sessionManger GET:str parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-        NSLog(@"downloadProgress = %lld",downloadProgress.totalUnitCount);
+//        NSLog(@"downloadProgress = %lld",downloadProgress.totalUnitCount);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         //请求得到的数据
         NSDictionary *resultDic = responseObject;
@@ -127,7 +188,11 @@
             [self.tableView reloadData];
             //广告
             NSArray *adDataArray = dic[@"adData"];
-          
+            for (NSDictionary *dic in adDataArray) {
+                [self.adArray addObject:dic[@"url"]];
+            }
+            //拿到数据之后重新刷新tableView
+            [self configTableViewHeaderView];
             //以请求回来的城市作为导航栏左侧按钮标题
             self.navigationItem.leftBarButtonItem.title = cityName;
             
@@ -140,6 +205,15 @@
     }];
     
     
+
+}
+
+- (void)mainActivityButtonAction:(UIButton *)activityBtn{
+
+
+}
+
+- (void)goodActivityButtonAction:(UIButton *)activityBtn{
 
 }
 
@@ -166,6 +240,13 @@
         self.themeArray = [NSMutableArray new];
     }
     return _themeArray;
+}
+
+-(NSMutableArray *)adArray{
+    if (_adArray == nil) {
+        self.adArray = [NSMutableArray new];
+    }
+    return _adArray;
 }
 
 - (void)didReceiveMemoryWarning {
