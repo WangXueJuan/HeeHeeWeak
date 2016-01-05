@@ -7,7 +7,7 @@
 //
 
 #import "MainTableViewCell.h"
-
+#import <SDWebImage/UIImageView+WebCache.h>
 @interface MainTableViewCell ()
 //活动图片
 @property (weak, nonatomic) IBOutlet UIImageView *activityImage;
@@ -27,6 +27,16 @@
     // Initialization code
     
 }
+
+//在model的set方法赋值
+-(void)setMainModel:(MainModel *)mainModel{
+      [self.activityImage sd_setImageWithURL:[NSURL URLWithString:mainModel.image_big] placeholderImage:nil];//网上获取图片
+    self.activityNameLabel.text = mainModel.title;
+    self.activityPriceLabel.text = mainModel.price;
+}
+
+
+
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
