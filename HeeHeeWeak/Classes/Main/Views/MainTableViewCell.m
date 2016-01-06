@@ -33,6 +33,16 @@
       [self.activityImage sd_setImageWithURL:[NSURL URLWithString:mainModel.image_big] placeholderImage:nil];//网上获取图片
     self.activityNameLabel.text = mainModel.title;
     self.activityPriceLabel.text = mainModel.price;
+    //隐藏标题Label 和 距离 button
+    if ([mainModel.type integerValue] != RecommendTypeActivity ) {
+        self.activityDistanceBtn.hidden = YES;
+        self.activityNameLabel.hidden = YES;
+    } else {
+        self.activityDistanceBtn.hidden = NO;
+        self.activityNameLabel.hidden = NO;
+
+
+    }
 }
 
 

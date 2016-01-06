@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import <AFURLSessionManager.h>
 #import <AFNetworking/AFHTTPSessionManager.h>
-@interface MainViewController : UIViewController<UITableViewDataSource, UITableViewDelegate, NSURLSessionDataDelegate, NSURLSessionDownloadDelegate, NSURLSessionTaskDelegate, NSURLSessionDelegate>
+@interface MainViewController : UIViewController<UITableViewDataSource, UITableViewDelegate>
 
 @end
