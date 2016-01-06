@@ -15,6 +15,7 @@
 		7A341CBC1C3CBFE200031233 /* ClassifyViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A341CBB1C3CBFE200031233 /* ClassifyViewController.m */; };
 		7A341CBF1C3CC06B00031233 /* HotActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A341CBE1C3CC06B00031233 /* HotActivityViewController.m */; };
 		7A341CC21C3CC07900031233 /* GoodActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A341CC11C3CC07900031233 /* GoodActivityViewController.m */; };
+		7A341CC81C3D207A00031233 /* UIViewController+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A341CC71C3D207A00031233 /* UIViewController+Common.m */; };
 		7AAA00971C3A1C3A005500C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAA00961C3A1C3A005500C2 /* main.m */; };
 		7AAA009A1C3A1C3A005500C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAA00991C3A1C3A005500C2 /* AppDelegate.m */; };
 		7AAA009C1C3A1C3A005500C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AAA009B1C3A1C3A005500C2 /* Assets.xcassets */; };
@@ -49,6 +50,8 @@
 		7A341CBE1C3CC06B00031233 /* HotActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotActivityViewController.m; sourceTree = "<group>"; };
 		7A341CC01C3CC07900031233 /* GoodActivityViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodActivityViewController.h; sourceTree = "<group>"; };
 		7A341CC11C3CC07900031233 /* GoodActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodActivityViewController.m; sourceTree = "<group>"; };
+		7A341CC61C3D207A00031233 /* UIViewController+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Common.h"; sourceTree = "<group>"; };
+		7A341CC71C3D207A00031233 /* UIViewController+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Common.m"; sourceTree = "<group>"; };
 		7AAA00921C3A1C3A005500C2 /* HeeHeeWeak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeeHeeWeak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AAA00961C3A1C3A005500C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7AAA00981C3A1C3A005500C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -100,6 +103,8 @@
 			children = (
 				7A341CAC1C3CAE4600031233 /* PrefixHeader.pch */,
 				7A341CAD1C3CB2F100031233 /* HWDefine.h */,
+				7A341CC61C3D207A00031233 /* UIViewController+Common.h */,
+				7A341CC71C3D207A00031233 /* UIViewController+Common.m */,
 			);
 			path = HppTools;
 			sourceTree = "<group>";
@@ -446,6 +451,7 @@
 				7AAA00971C3A1C3A005500C2 /* main.m in Sources */,
 				7A341CB01C3CBC1500031233 /* SelectCityViewController.m in Sources */,
 				7AAA00C31C3A4E36005500C2 /* MainViewController.m in Sources */,
+				7A341CC81C3D207A00031233 /* UIViewController+Common.m in Sources */,
 				7AE912BB1C3BA086003B844A /* MainModel.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

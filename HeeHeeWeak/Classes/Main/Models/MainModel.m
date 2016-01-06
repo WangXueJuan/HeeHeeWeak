@@ -31,6 +31,7 @@
         self.title = dict[@"title"];
         self.activityId = dict[@"id"];
         self.image_big = dict[@"image_big"];
+        
        
        
     }
