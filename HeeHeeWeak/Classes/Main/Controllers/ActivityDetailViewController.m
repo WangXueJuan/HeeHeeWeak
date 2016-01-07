@@ -9,7 +9,15 @@
 #import "ActivityDetailViewController.h"
 #import "AFHTTPSessionManager.h"
 #import "MBProgressHUD.h"
+#import "ActivityDetailView.h"
 @interface ActivityDetailViewController ()
+
+
+@property (strong, nonatomic) IBOutlet ActivityDetailView *ActivityDetailView;
+
+
+
+
 
 @end
 
@@ -18,9 +26,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.view.backgroundColor = [UIColor greenColor];
     self.title = @"活动详情";
     
+        
     [self showBackButton];
     //网络请求
     [self getModel];
@@ -34,11 +42,25 @@
     sessionManger.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
      [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [sessionManger GET:[NSString stringWithFormat:@"%@&id=%@",kActivityDetailList,self.activityId] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-//      [MBProgressHUD hideHUDForView:self.view animated:YES];
-        WXJLog(@"downloadProgress = %@",downloadProgress);
+    
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [MBProgressHUD hideHUDForView:self.view animated:YES];
-        WXJLog(@"responseObject = %@",responseObject);
+        
+        NSDictionary *dic = responseObject;
+        NSString *status = dic[@"status"];
+        NSInteger code = [dic[@"code"] integerValue];
+        if ([status isEqualToString:@"success"] && code == 0) {
+            NSDictionary *successDic = dic[@"success"];
+            self.ActivityDetailView.dataDic = successDic;
+            
+        } else {
+            
+            
+        
+        }
+        
+        
+        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
        [MBProgressHUD hideHUDForView:self.view animated:YES];        WXJLog(@"error = %@",error);
     }];
