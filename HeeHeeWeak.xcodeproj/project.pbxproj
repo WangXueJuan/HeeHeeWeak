@@ -32,6 +32,8 @@
 		7AE912BB1C3BA086003B844A /* MainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE912BA1C3BA086003B844A /* MainModel.m */; };
 		7AEB5C4C1C3E124000F2DC80 /* ActivityDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB5C4B1C3E124000F2DC80 /* ActivityDetailView.m */; };
 		7AEB5C4E1C3E153B00F2DC80 /* Property List.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AEB5C4D1C3E153B00F2DC80 /* Property List.plist */; };
+		7AEB5C511C3E4C2F00F2DC80 /* HWTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB5C501C3E4C2F00F2DC80 /* HWTools.m */; };
+		7AEB5C571C3E5B6E00F2DC80 /* UIView+UIView_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB5C561C3E5B6E00F2DC80 /* UIView+UIView_Extension.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -79,6 +81,10 @@
 		7AEB5C4A1C3E124000F2DC80 /* ActivityDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityDetailView.h; sourceTree = "<group>"; };
 		7AEB5C4B1C3E124000F2DC80 /* ActivityDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityDetailView.m; sourceTree = "<group>"; };
 		7AEB5C4D1C3E153B00F2DC80 /* Property List.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "Property List.plist"; sourceTree = "<group>"; };
+		7AEB5C4F1C3E4C2F00F2DC80 /* HWTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HWTools.h; path = ../../Classes/Main/Views/HWTools.h; sourceTree = "<group>"; };
+		7AEB5C501C3E4C2F00F2DC80 /* HWTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HWTools.m; path = ../../Classes/Main/Views/HWTools.m; sourceTree = "<group>"; };
+		7AEB5C551C3E5B6E00F2DC80 /* UIView+UIView_Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UIView_Extension.h"; sourceTree = "<group>"; };
+		7AEB5C561C3E5B6E00F2DC80 /* UIView+UIView_Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+UIView_Extension.m"; sourceTree = "<group>"; };
 		9A5DD4F7E6B7C95E16015ED9 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D5FFF3A08D42121586FC79F6 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -108,8 +114,12 @@
 			children = (
 				7A341CAC1C3CAE4600031233 /* PrefixHeader.pch */,
 				7A341CAD1C3CB2F100031233 /* HWDefine.h */,
+				7AEB5C4F1C3E4C2F00F2DC80 /* HWTools.h */,
+				7AEB5C501C3E4C2F00F2DC80 /* HWTools.m */,
 				7A341CC61C3D207A00031233 /* UIViewController+Common.h */,
 				7A341CC71C3D207A00031233 /* UIViewController+Common.m */,
+				7AEB5C551C3E5B6E00F2DC80 /* UIView+UIView_Extension.h */,
+				7AEB5C561C3E5B6E00F2DC80 /* UIView+UIView_Extension.m */,
 			);
 			path = HppTools;
 			sourceTree = "<group>";
@@ -447,6 +457,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AEB5C511C3E4C2F00F2DC80 /* HWTools.m in Sources */,
 				7A341CBC1C3CBFE200031233 /* ClassifyViewController.m in Sources */,
 				7AAA00D01C3A7669005500C2 /* MainTableViewCell.m in Sources */,
 				7A341CBF1C3CC06B00031233 /* HotActivityViewController.m in Sources */,
@@ -455,6 +466,7 @@
 				7AAA00C21C3A4E36005500C2 /* DiscoverViewController.m in Sources */,
 				7AAA00C41C3A4E36005500C2 /* MineViewController.m in Sources */,
 				7A341CB61C3CBE7300031233 /* ActivityDetailViewController.m in Sources */,
+				7AEB5C571C3E5B6E00F2DC80 /* UIView+UIView_Extension.m in Sources */,
 				7A341CB31C3CBD9100031233 /* SearchViewController.m in Sources */,
 				7A341CB91C3CBF3E00031233 /* ThemeViewController.m in Sources */,
 				7AEB5C4C1C3E124000F2DC80 /* ActivityDetailView.m in Sources */,
