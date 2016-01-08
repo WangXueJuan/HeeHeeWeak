@@ -61,7 +61,7 @@
     //自定义tableView的头部
     [self configTableViewHeaderView];
     //请求网络数据
-    [self requestModel];
+//    [self requestModel];
     //启动定时器
     [self startTimer];
     

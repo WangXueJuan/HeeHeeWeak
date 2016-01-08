@@ -16,9 +16,13 @@
 		7A341CBF1C3CC06B00031233 /* HotActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A341CBE1C3CC06B00031233 /* HotActivityViewController.m */; };
 		7A341CC21C3CC07900031233 /* GoodActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A341CC11C3CC07900031233 /* GoodActivityViewController.m */; };
 		7A341CC81C3D207A00031233 /* UIViewController+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A341CC71C3D207A00031233 /* UIViewController+Common.m */; };
-		7A8F52871C3F585E00B4AE2D /* MainActivity.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A8F52861C3F585E00B4AE2D /* MainActivity.plist */; };
-		7A8F52891C3F5DBB00B4AE2D /* ThemeActivity.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7A8F52881C3F5DBB00B4AE2D /* ThemeActivity.plist */; };
 		7A8F528C1C3F5EC900B4AE2D /* ActivityThemView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8F528B1C3F5EC900B4AE2D /* ActivityThemView.m */; };
+		7AA05C2A1C3F9DC000076E61 /* blueArrow.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AA05C261C3F9DC000076E61 /* blueArrow.png */; };
+		7AA05C2B1C3F9DC000076E61 /* blueArrowDown.png in Resources */ = {isa = PBXBuildFile; fileRef = 7AA05C271C3F9DC000076E61 /* blueArrowDown.png */; };
+		7AA05C2C1C3F9DC000076E61 /* PullingRefreshTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA05C291C3F9DC000076E61 /* PullingRefreshTableView.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		7AA05C301C3FA3B100076E61 /* GoodActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA05C2E1C3FA3B100076E61 /* GoodActivityTableViewCell.m */; };
+		7AA05C311C3FA3B100076E61 /* GoodActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AA05C2F1C3FA3B100076E61 /* GoodActivityTableViewCell.xib */; };
+		7AA05C361C3FBE3E00076E61 /* GoodActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA05C351C3FBE3E00076E61 /* GoodActivityModel.m */; };
 		7AAA00971C3A1C3A005500C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAA00961C3A1C3A005500C2 /* main.m */; };
 		7AAA009A1C3A1C3A005500C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAA00991C3A1C3A005500C2 /* AppDelegate.m */; };
 		7AAA009C1C3A1C3A005500C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AAA009B1C3A1C3A005500C2 /* Assets.xcassets */; };
@@ -33,7 +37,6 @@
 		7AAA00D11C3A7669005500C2 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AAA00CF1C3A7669005500C2 /* MainTableViewCell.xib */; };
 		7AE912BB1C3BA086003B844A /* MainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE912BA1C3BA086003B844A /* MainModel.m */; };
 		7AEB5C4C1C3E124000F2DC80 /* ActivityDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB5C4B1C3E124000F2DC80 /* ActivityDetailView.m */; };
-		7AEB5C4E1C3E153B00F2DC80 /* ActivityDetail.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AEB5C4D1C3E153B00F2DC80 /* ActivityDetail.plist */; };
 		7AEB5C511C3E4C2F00F2DC80 /* HWTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB5C501C3E4C2F00F2DC80 /* HWTools.m */; };
 		7AEB5C571C3E5B6E00F2DC80 /* UIView+UIView_Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB5C561C3E5B6E00F2DC80 /* UIView+UIView_Extension.m */; };
 /* End PBXBuildFile section */
@@ -58,10 +61,17 @@
 		7A341CC11C3CC07900031233 /* GoodActivityViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodActivityViewController.m; sourceTree = "<group>"; };
 		7A341CC61C3D207A00031233 /* UIViewController+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Common.h"; sourceTree = "<group>"; };
 		7A341CC71C3D207A00031233 /* UIViewController+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Common.m"; sourceTree = "<group>"; };
-		7A8F52861C3F585E00B4AE2D /* MainActivity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = MainActivity.plist; sourceTree = "<group>"; };
-		7A8F52881C3F5DBB00B4AE2D /* ThemeActivity.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = ThemeActivity.plist; sourceTree = "<group>"; };
 		7A8F528A1C3F5EC900B4AE2D /* ActivityThemView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityThemView.h; sourceTree = "<group>"; };
 		7A8F528B1C3F5EC900B4AE2D /* ActivityThemView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityThemView.m; sourceTree = "<group>"; };
+		7AA05C261C3F9DC000076E61 /* blueArrow.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrow.png; sourceTree = "<group>"; };
+		7AA05C271C3F9DC000076E61 /* blueArrowDown.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = blueArrowDown.png; sourceTree = "<group>"; };
+		7AA05C281C3F9DC000076E61 /* PullingRefreshTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PullingRefreshTableView.h; sourceTree = "<group>"; };
+		7AA05C291C3F9DC000076E61 /* PullingRefreshTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PullingRefreshTableView.m; sourceTree = "<group>"; };
+		7AA05C2D1C3FA3B100076E61 /* GoodActivityTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodActivityTableViewCell.h; sourceTree = "<group>"; };
+		7AA05C2E1C3FA3B100076E61 /* GoodActivityTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodActivityTableViewCell.m; sourceTree = "<group>"; };
+		7AA05C2F1C3FA3B100076E61 /* GoodActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodActivityTableViewCell.xib; sourceTree = "<group>"; };
+		7AA05C341C3FBE3E00076E61 /* GoodActivityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodActivityModel.h; sourceTree = "<group>"; };
+		7AA05C351C3FBE3E00076E61 /* GoodActivityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodActivityModel.m; sourceTree = "<group>"; };
 		7AAA00921C3A1C3A005500C2 /* HeeHeeWeak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeeHeeWeak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AAA00961C3A1C3A005500C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7AAA00981C3A1C3A005500C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -85,7 +95,6 @@
 		7AE912BA1C3BA086003B844A /* MainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainModel.m; sourceTree = "<group>"; };
 		7AEB5C4A1C3E124000F2DC80 /* ActivityDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityDetailView.h; sourceTree = "<group>"; };
 		7AEB5C4B1C3E124000F2DC80 /* ActivityDetailView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ActivityDetailView.m; sourceTree = "<group>"; };
-		7AEB5C4D1C3E153B00F2DC80 /* ActivityDetail.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist; path = ActivityDetail.plist; sourceTree = "<group>"; };
 		7AEB5C4F1C3E4C2F00F2DC80 /* HWTools.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = HWTools.h; path = ../../Classes/Main/Views/HWTools.h; sourceTree = "<group>"; };
 		7AEB5C501C3E4C2F00F2DC80 /* HWTools.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = HWTools.m; path = ../../Classes/Main/Views/HWTools.m; sourceTree = "<group>"; };
 		7AEB5C551C3E5B6E00F2DC80 /* UIView+UIView_Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+UIView_Extension.h"; sourceTree = "<group>"; };
@@ -109,6 +118,7 @@
 		7A341CAA1C3CAE4600031233 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				7AA05C251C3F9DC000076E61 /* PullingRefreshTableView */,
 				7A341CAB1C3CAE4600031233 /* HppTools */,
 			);
 			path = Library;
@@ -127,6 +137,17 @@
 				7AEB5C561C3E5B6E00F2DC80 /* UIView+UIView_Extension.m */,
 			);
 			path = HppTools;
+			sourceTree = "<group>";
+		};
+		7AA05C251C3F9DC000076E61 /* PullingRefreshTableView */ = {
+			isa = PBXGroup;
+			children = (
+				7AA05C261C3F9DC000076E61 /* blueArrow.png */,
+				7AA05C271C3F9DC000076E61 /* blueArrowDown.png */,
+				7AA05C281C3F9DC000076E61 /* PullingRefreshTableView.h */,
+				7AA05C291C3F9DC000076E61 /* PullingRefreshTableView.m */,
+			);
+			path = PullingRefreshTableView;
 			sourceTree = "<group>";
 		};
 		7AAA00891C3A1C3A005500C2 = {
@@ -244,9 +265,6 @@
 				7A341CAF1C3CBC1500031233 /* SelectCityViewController.m */,
 				7A341CB11C3CBD9100031233 /* SearchViewController.h */,
 				7A341CB21C3CBD9100031233 /* SearchViewController.m */,
-				7A8F52861C3F585E00B4AE2D /* MainActivity.plist */,
-				7AEB5C4D1C3E153B00F2DC80 /* ActivityDetail.plist */,
-				7A8F52881C3F5DBB00B4AE2D /* ThemeActivity.plist */,
 			);
 			path = Controllers;
 			sourceTree = "<group>";
@@ -256,6 +274,8 @@
 			children = (
 				7AE912B91C3BA086003B844A /* MainModel.h */,
 				7AE912BA1C3BA086003B844A /* MainModel.m */,
+				7AA05C341C3FBE3E00076E61 /* GoodActivityModel.h */,
+				7AA05C351C3FBE3E00076E61 /* GoodActivityModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -271,6 +291,9 @@
 				7AEB5C4B1C3E124000F2DC80 /* ActivityDetailView.m */,
 				7A8F528A1C3F5EC900B4AE2D /* ActivityThemView.h */,
 				7A8F528B1C3F5EC900B4AE2D /* ActivityThemView.m */,
+				7AA05C2D1C3FA3B100076E61 /* GoodActivityTableViewCell.h */,
+				7AA05C2E1C3FA3B100076E61 /* GoodActivityTableViewCell.m */,
+				7AA05C2F1C3FA3B100076E61 /* GoodActivityTableViewCell.xib */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -400,13 +423,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AAA00D11C3A7669005500C2 /* MainTableViewCell.xib in Resources */,
-				7A8F52891C3F5DBB00B4AE2D /* ThemeActivity.plist in Resources */,
 				7AAA00C81C3A5064005500C2 /* Main.storyboard in Resources */,
 				7AAA00CA1C3A5075005500C2 /* Discover.storyboard in Resources */,
+				7AA05C2B1C3F9DC000076E61 /* blueArrowDown.png in Resources */,
 				7AAA00CC1C3A508B005500C2 /* Mine.storyboard in Resources */,
 				7AAA009C1C3A1C3A005500C2 /* Assets.xcassets in Resources */,
-				7A8F52871C3F585E00B4AE2D /* MainActivity.plist in Resources */,
-				7AEB5C4E1C3E153B00F2DC80 /* ActivityDetail.plist in Resources */,
+				7AA05C311C3FA3B100076E61 /* GoodActivityTableViewCell.xib in Resources */,
+				7AA05C2A1C3F9DC000076E61 /* blueArrow.png in Resources */,
 				7AAA009F1C3A1C3B005500C2 /* LaunchScreen.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -475,16 +498,19 @@
 				7A341CC21C3CC07900031233 /* GoodActivityViewController.m in Sources */,
 				7AAA00C21C3A4E36005500C2 /* DiscoverViewController.m in Sources */,
 				7AAA00C41C3A4E36005500C2 /* MineViewController.m in Sources */,
+				7AA05C361C3FBE3E00076E61 /* GoodActivityModel.m in Sources */,
 				7A341CB61C3CBE7300031233 /* ActivityDetailViewController.m in Sources */,
 				7AEB5C571C3E5B6E00F2DC80 /* UIView+UIView_Extension.m in Sources */,
 				7A341CB31C3CBD9100031233 /* SearchViewController.m in Sources */,
 				7A341CB91C3CBF3E00031233 /* ThemeViewController.m in Sources */,
+				7AA05C2C1C3F9DC000076E61 /* PullingRefreshTableView.m in Sources */,
 				7AEB5C4C1C3E124000F2DC80 /* ActivityDetailView.m in Sources */,
 				7AAA00971C3A1C3A005500C2 /* main.m in Sources */,
 				7A341CB01C3CBC1500031233 /* SelectCityViewController.m in Sources */,
 				7AAA00C31C3A4E36005500C2 /* MainViewController.m in Sources */,
 				7A341CC81C3D207A00031233 /* UIViewController+Common.m in Sources */,
 				7AE912BB1C3BA086003B844A /* MainModel.m in Sources */,
+				7AA05C301C3FA3B100076E61 /* GoodActivityTableViewCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -587,6 +613,7 @@
 			baseConfigurationReference = D5FFF3A08D42121586FC79F6 /* Pods.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HeeHeeWeak/Library/HppTools/PrefixHeader.pch";
 				INFOPLIST_FILE = HeeHeeWeak/Info.plist;
@@ -603,6 +630,7 @@
 			baseConfigurationReference = 72D6D1F9919540C3A02B5832 /* Pods.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/HeeHeeWeak/Library/HppTools/PrefixHeader.pch";
 				INFOPLIST_FILE = HeeHeeWeak/Info.plist;

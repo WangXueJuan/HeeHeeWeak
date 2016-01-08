@@ -1,7 +1,7 @@
 //
 //  HotActivityViewController.m
 //  HeeHeeWeak
-//
+//  热门专题
 //  Created by scjy on 16/1/6.
 //  Copyright © 2016年 王雪娟. All rights reserved.
 //
@@ -18,6 +18,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor magentaColor];
+    self.tabBarController.tabBar.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {

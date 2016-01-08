@@ -64,8 +64,6 @@
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:dataDic[@"image"]]];
     //活动详情
     [self drawContentWithArray:dataDic[@"content"]];
-    
-
 
 }
 

@@ -14,6 +14,9 @@
 //通过时间戳转换时间
 +(NSString *)getDataFromString:(NSString *)timestamp;
 
+//获取系统当前时间
++ (NSDate *)getSystemNowTime;
+
 #pragma mark -------------------- 根据文字最大显示宽高贺文字内容返回高度
 + (CGFloat)getTextHeightWithText:(NSString *)text WithBigiestSize:(CGSize)bigSize fontText:(CGFloat)font;
 
