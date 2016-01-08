@@ -14,7 +14,6 @@
 
 
 @interface AppDelegate ()
-
 @end
 
 @implementation AppDelegate
@@ -25,7 +24,7 @@
     // Override point for customization after application launch.
     
     //UITableBarController
-    UITabBarController *tabBarVC = [[UITabBarController alloc] init];
+    self.tabBarVC = [[UITabBarController alloc] init];
     //创建被tabBarC管理的视图控制器
     //主页
     UIStoryboard *mainStoryboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -57,12 +56,12 @@
     mineNav.tabBarItem.selectedImage = [mineSelectImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     
     //添加被管理的视图
-    tabBarVC.viewControllers = @[mainNav,discoverNav,mineNav];
+    self.tabBarVC.viewControllers = @[mainNav,discoverNav,mineNav];
     //设置tabBar导航栏的颜色
-    tabBarVC.tabBar.barTintColor = [UIColor whiteColor];
+    self.tabBarVC.tabBar.barTintColor = [UIColor whiteColor];
     
     
-    self.window.rootViewController = tabBarVC;
+    self.window.rootViewController = self.tabBarVC;
     
     
     

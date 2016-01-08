@@ -47,6 +47,7 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
 
+    
     //left
     UIBarButtonItem *leftBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"北京" style:UIBarButtonItemStylePlain target:self action:@selector(selectCityAction:)];
     leftBarBtn.tintColor = [UIColor whiteColor];
@@ -117,15 +118,18 @@
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+  
+    MainModel *mainModel = self.listArray[indexPath.section][indexPath.row];
     if (indexPath.section == 0) {
        UIStoryboard *mainStoryBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
          ActivityDetailViewController *actiDetailVC = [mainStoryBoard instantiateViewControllerWithIdentifier:@"activityDetailVC"];
-        //活动id
-        MainModel *mainModel = self.listArray[indexPath.section][indexPath.row];
+         //活动id
         actiDetailVC.activityId = mainModel.activityId;
+        
         [self.navigationController pushViewController:actiDetailVC animated:YES];
     } else {
         ThemeViewController *themeVC = [[ThemeViewController alloc] init];
+        themeVC.themeId = mainModel.activityId;
         [self.navigationController pushViewController:themeVC animated:YES];
     
     }
@@ -139,6 +143,7 @@
 
 #pragma mark ------------------------ Custom Method
 
+//选择城市
 - (void)selectCityAction:(UIBarButtonItem *)barBtn{
     //初始化一个selectCity
     SelectCityViewController *selectCityVC = [[SelectCityViewController alloc] init];
@@ -147,6 +152,7 @@
 
 }
 
+//搜索按钮
 - (void)searchActivityAction:(UIBarButtonItem *)barBtn{
     SearchViewController *searchVC = [[SearchViewController alloc] init];
     [self.navigationController pushViewController:searchVC animated:YES];
@@ -156,7 +162,7 @@
 //自定义tableView的分区头部
 - (void)configTableViewHeaderView{
     UIView *tableViewHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kWidth, 343)];
-    //按钮4个
+    //分类列表的4个按钮
     for (int i = 0; i < 4; i++) {
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = CGRectMake(kWidth * i / 4, 186, kWidth / 4, kWidth / 4);
@@ -199,6 +205,7 @@
     [sessionManger GET:kMainDataList parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
 //        WXJLog(@"downloadProgress = %lld",downloadProgress.totalUnitCount);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+//              WXJLog(@"downloadProgress = %@",responseObject);
         //请求得到的数据
         NSDictionary *resultDic = responseObject;
         NSString *status = resultDic[@"status"];
@@ -253,20 +260,6 @@
 
 }
 
-//精选活动
-- (void)goodActivityButtonAction:(UIButton *)activityBtn{
-    GoodActivityViewController *godVC = [[GoodActivityViewController alloc] init];
-    [self.navigationController pushViewController:godVC animated:YES];
-
-}
-
-//热门专题
-- (void)hotActivityButtonAction:(UIButton *)btn{
-    HotActivityViewController *hotVC = [[HotActivityViewController alloc] init];
-    [self.navigationController pushViewController:hotVC animated:YES];
-
-
-}
 
 //广告图片点击方法
 - (void)touchAdversiment:(UIButton *)adBtn{
@@ -281,9 +274,12 @@
         
         [self.navigationController pushViewController:actiDetailVC animated:YES];
     } else{
-    
-        HotActivityViewController *hotActivityVC = [[HotActivityViewController alloc] init];
-        [self.navigationController pushViewController:hotActivityVC animated:YES];
+        
+    //进入热门专题
+        ThemeViewController *themeActivityVC = [[ThemeViewController alloc] init];
+        themeActivityVC.themeId = self.adArray[adBtn.tag - 10][@"id"];
+        
+        [self.navigationController pushViewController:themeActivityVC animated:YES];
     }
     
    
@@ -306,6 +302,7 @@
 
 }
 
+//懒加载 UIPageControl 添加到自定义分区头部的 view 上
 - (UIPageControl *)pageControl{
     if (_pageControl == nil) {
         //设置小圆点和定时器，让scrollView实现定时滑动
@@ -319,7 +316,7 @@
     return _pageControl;
 }
 
-//精选活动按钮
+//精选活动 按钮
 - (UIButton *)activityBtn{
     if (_activityBtn == nil) {
         //精选活动按钮
@@ -332,7 +329,7 @@
     return  _activityBtn;
 }
 
-//热门专题按钮
+//热门专题 按钮
 - (UIButton *)themeBtn{
     if (_themeBtn == nil) {
         //热门专题按钮
@@ -342,6 +339,24 @@
         [self.themeBtn addTarget:self action:@selector(hotActivityButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     }
     return _themeBtn;
+}
+
+
+
+//点击 精选活动 实现的方法
+- (void)goodActivityButtonAction:(UIButton *)activityBtn{
+    GoodActivityViewController *godVC = [[GoodActivityViewController alloc] init];
+  
+    [self.navigationController pushViewController:godVC animated:YES];
+    
+}
+
+//点击 热门专题 实现的方法
+- (void)hotActivityButtonAction:(UIButton *)btn{
+    HotActivityViewController *hotVC = [[HotActivityViewController alloc] init];
+    [self.navigationController pushViewController:hotVC animated:YES];
+    
+    
 }
 
 #pragma mark ------------------ 首页轮播图
@@ -356,14 +371,18 @@
 
 //每2秒执行一次，自动轮播
 - (void)rollAnimationAction:(NSTimer *)timer{
-    //把pageController当前页 + 1
-    NSInteger rollPage = (self.pageControl.currentPage + 1) % self.adArray.count;
-    self.pageControl.currentPage = rollPage;
-    //计算scrollView应该滚动的x轴的坐标
-    CGFloat offsetX = self.pageControl.currentPage * kWidth;
-    [self.scrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
-    
-}
+    //self.adArray.count 可能为 0， 所以会崩溃
+    if (self.adArray.count > 0) {
+        //把pageController当前页 + 1
+        NSInteger rollPage = (self.pageControl.currentPage + 1) % self.adArray.count;
+        self.pageControl.currentPage = rollPage;
+        //计算scrollView应该滚动的x轴的坐标
+        CGFloat offsetX = self.pageControl.currentPage * kWidth;
+        [self.scrollView setContentOffset:CGPointMake(offsetX, 0) animated:YES];
+        
+
+    }
+    }
 
 /*
  当手动去滑动scrollView的时候，定时器依然在计算时间，可能我们刚刚滑动到下一页，，定时器时间又刚好触发，导致在当前页面停留不够2秒。
@@ -441,7 +460,13 @@
     
 }
 
+//让TablBar 再次显示
 
+-(void)viewWillAppear:(BOOL)animated{
+    [self viewDidAppear:YES];
+    self.tabBarController.tabBar.hidden = NO;
+    
+}
 
 
 - (void)didReceiveMemoryWarning {

@@ -1,7 +1,7 @@
 //
 //  ActivityDetailViewController.m
 //  HeeHeeWeak
-//
+//  活动详情
 //  Created by scjy on 16/1/6.
 //  Copyright © 2016年 王雪娟. All rights reserved.
 //
@@ -29,6 +29,9 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.title = @"活动详情";
+    
+    //隐藏 tabBar
+    self.tabBarController.tabBar.hidden = YES;
     
     //打电话
     self.ActivityDetailView.phoneButton = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -102,6 +105,7 @@
 
 
 }
+
 
 
 - (void)didReceiveMemoryWarning {
