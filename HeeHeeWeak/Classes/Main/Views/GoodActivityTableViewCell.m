@@ -7,7 +7,7 @@
 //
 
 #import "GoodActivityTableViewCell.h"
-
+#import <SDWebImage/UIImageView+WebCache.h>
 @interface GoodActivityTableViewCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
 
@@ -32,7 +32,12 @@
 
 //在set方法中赋值
 -(void)setGoodModel:(GoodActivityModel *)goodModel{
-    
+    self.ageLabel.text = goodModel.age;
+    self.activityPriceLabel.text = goodModel.price;
+    self.activityTitleLabel.text = goodModel.title;
+    [self.headImageView sd_setImageWithURL:[NSURL URLWithString:goodModel.image] placeholderImage:nil];
+//    [self.loveButton setTitle:goodModel.counts forState:UIControlStateNormal];
+  
 
 
 }

@@ -10,6 +10,8 @@
 #import "AFHTTPSessionManager.h"
 #import "MBProgressHUD.h"
 #import "ActivityDetailView.h"
+#import "GoodActivityModel.h"
+#import "GoodActivityTableViewCell.h"
 @interface ActivityDetailViewController ()
 {
     NSString *phoneNum;

@@ -18,8 +18,9 @@
     NSInteger _pageCount;
 }
 @property(nonatomic ,assign) BOOL refreshing;
-
 @property(nonatomic, strong) PullingRefreshTableView *tableView;
+@property(nonatomic, strong) NSMutableArray *acArray;
+
 
 @end
 
@@ -28,6 +29,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+
+    
     self.title = @"精选活动";
     self.tabBarController.tabBar.hidden = YES;
     [self.view addSubview:self.tableView];
@@ -40,12 +43,15 @@
 #pragma mark -----------------------  UITableViewDataSource
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return 10;
+    return self.acArray.count;
 }
 
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     GoodActivityTableViewCell *goodCell = [self.tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
     goodCell.selectionStyle = UITableViewCellSelectionStyleNone;
+    
+    GoodActivityModel *model = self.acArray[indexPath.row];
+    goodCell.goodModel = model;
     return goodCell;
 
 }
@@ -63,7 +69,8 @@
         self.tableView = [[PullingRefreshTableView alloc] initWithFrame:CGRectMake(0, 0, kWidth, kHeight - 64) pullingDelegate:self];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
-        self.tableView.rowHeight = 90;
+        self.tableView.rowHeight = 100;
+        self.tableView.separatorColor = [UIColor clearColor];
     }
     return _tableView;
 }
@@ -95,7 +102,6 @@
 
 //加载数据调用此方法
 - (void)loadData{
-    WXJLog(@"14456");
     //完成加载
     [self.tableView tableViewDidFinishedLoading];
     self.tableView.reachedTheEnd = NO;
@@ -106,7 +112,21 @@
     [manger GET:[NSString stringWithFormat:@"%@&page=%ld",kGoodActivity,_pageCount] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         
-       
+        NSDictionary *dict = responseObject;
+        NSString *status = dict[@"status"];
+        NSInteger code = [dict[@"code"] integerValue];
+        if ([status isEqualToString:@"success"] && code == 0) {
+            NSDictionary *successDic = dict[@"success"];
+            NSArray *acDataArray = successDic[@"acData"];
+            for (NSDictionary *dic in acDataArray) {
+                GoodActivityModel *goodMod = [[GoodActivityModel alloc] initWithDictionary:dic];
+                [self.acArray addObject:goodMod];
+            }
+        }
+        //完成加载
+        [self.tableView tableViewDidFinishedLoading];
+        self.tableView.reachedTheEnd = NO;
+        [self.tableView reloadData];
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         
@@ -125,6 +145,15 @@
     [self.tableView tableViewDidEndDragging:scrollView];
 }
 
+
+//懒加载数组
+-(NSMutableArray *)acArray{
+    if (_acArray == nil) {
+        self.acArray = [NSMutableArray new];
+    }
+    return _acArray;
+
+}
 
 
 

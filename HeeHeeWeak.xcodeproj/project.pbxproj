@@ -23,6 +23,7 @@
 		7AA05C301C3FA3B100076E61 /* GoodActivityTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA05C2E1C3FA3B100076E61 /* GoodActivityTableViewCell.m */; };
 		7AA05C311C3FA3B100076E61 /* GoodActivityTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AA05C2F1C3FA3B100076E61 /* GoodActivityTableViewCell.xib */; };
 		7AA05C361C3FBE3E00076E61 /* GoodActivityModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AA05C351C3FBE3E00076E61 /* GoodActivityModel.m */; };
+		7AA05C3C1C3FCEAB00076E61 /* File in Resources */ = {isa = PBXBuildFile; fileRef = 7AA05C3B1C3FCEAB00076E61 /* File */; };
 		7AAA00971C3A1C3A005500C2 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAA00961C3A1C3A005500C2 /* main.m */; };
 		7AAA009A1C3A1C3A005500C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAA00991C3A1C3A005500C2 /* AppDelegate.m */; };
 		7AAA009C1C3A1C3A005500C2 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AAA009B1C3A1C3A005500C2 /* Assets.xcassets */; };
@@ -72,6 +73,7 @@
 		7AA05C2F1C3FA3B100076E61 /* GoodActivityTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = GoodActivityTableViewCell.xib; sourceTree = "<group>"; };
 		7AA05C341C3FBE3E00076E61 /* GoodActivityModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GoodActivityModel.h; sourceTree = "<group>"; };
 		7AA05C351C3FBE3E00076E61 /* GoodActivityModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GoodActivityModel.m; sourceTree = "<group>"; };
+		7AA05C3B1C3FCEAB00076E61 /* File */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = File; sourceTree = "<group>"; };
 		7AAA00921C3A1C3A005500C2 /* HeeHeeWeak.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HeeHeeWeak.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AAA00961C3A1C3A005500C2 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		7AAA00981C3A1C3A005500C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -255,6 +257,7 @@
 				7A341CBE1C3CC06B00031233 /* HotActivityViewController.m */,
 				7A341CC01C3CC07900031233 /* GoodActivityViewController.h */,
 				7A341CC11C3CC07900031233 /* GoodActivityViewController.m */,
+				7AA05C3B1C3FCEAB00076E61 /* File */,
 				7A341CBA1C3CBFE200031233 /* ClassifyViewController.h */,
 				7A341CBB1C3CBFE200031233 /* ClassifyViewController.m */,
 				7A341CB71C3CBF3E00031233 /* ThemeViewController.h */,
@@ -426,6 +429,7 @@
 				7AAA00C81C3A5064005500C2 /* Main.storyboard in Resources */,
 				7AAA00CA1C3A5075005500C2 /* Discover.storyboard in Resources */,
 				7AA05C2B1C3F9DC000076E61 /* blueArrowDown.png in Resources */,
+				7AA05C3C1C3FCEAB00076E61 /* File in Resources */,
 				7AAA00CC1C3A508B005500C2 /* Mine.storyboard in Resources */,
 				7AAA009C1C3A1C3A005500C2 /* Assets.xcassets in Resources */,
 				7AA05C311C3FA3B100076E61 /* GoodActivityTableViewCell.xib in Resources */,

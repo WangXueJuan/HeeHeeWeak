@@ -83,11 +83,7 @@
     MainTableViewCell *mainCell = [tableView dequeueReusableCellWithIdentifier:@"cellID" forIndexPath:indexPath];
     NSMutableArray *array = self.listArray[indexPath.section];
     mainCell.mainModel = array[indexPath.row];
-    
-    
     return mainCell;
-    
-
 }
 
 #pragma mark --------------- 实现UITableViewDelegate代理方法
@@ -203,9 +199,8 @@
     AFHTTPSessionManager *sessionManger = [AFHTTPSessionManager manager];
     sessionManger.responseSerializer.acceptableContentTypes = [NSSet setWithObjects:@"text/html", nil];
     [sessionManger GET:kMainDataList parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
-//        WXJLog(@"downloadProgress = %lld",downloadProgress.totalUnitCount);
+
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
-//              WXJLog(@"downloadProgress = %@",responseObject);
         //请求得到的数据
         NSDictionary *resultDic = responseObject;
         NSString *status = resultDic[@"status"];
@@ -241,9 +236,7 @@
             //以请求回来的城市作为导航栏左侧按钮标题
             self.navigationItem.leftBarButtonItem.title = cityName;
             
-        } else {
-        
-        }
+        } 
         
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         NSLog(@"error = %@",error);
