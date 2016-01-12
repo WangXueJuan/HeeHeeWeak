@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface HotActivityViewController : UIViewController
-
+@property(nonatomic, strong) NSString *hotActivityId;
 @end

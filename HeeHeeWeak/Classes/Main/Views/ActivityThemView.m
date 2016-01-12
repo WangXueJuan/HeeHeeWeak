@@ -9,6 +9,8 @@
 #import "ActivityThemView.h"
 #import <SDWebImage/UIImageView+WebCache.h>
 #import "HWTools.h"
+#import "HotActivityViewController.h"
+#import "HotActivityModel.h"
 @interface ActivityThemView ()
 {
     //保存上一次图片的底部的高度
@@ -111,7 +113,7 @@
                     if (lastImgbottom == 0.0) {
                         if (title != nil) {  //有title的算上title的30像素
                             imagY = _previonsImageBottom + label.height + 30 + 5;
-                        } else{
+                          } else{
                             imagY = _previonsImageBottom + label.height + 5;
                         }
                     } else {
@@ -133,12 +135,16 @@
                 if (urlArray.count > 1) {
                     lastImgbottom = imageView.bottom;
                 }
-                
             }
         }
     }
+    if (_lastLabelBottom > _previonsImageBottom) {
+        //给mainScrollView重新赋值它的高度
+        self.mainScrollView.contentSize = CGSizeMake(kWidth, _lastLabelBottom + 20);
+    }
     //给mainScrollView重新赋值它的高度
-    self.mainScrollView.contentSize = CGSizeMake(kWidth, _lastLabelBottom + 20);
+    self.mainScrollView.contentSize = CGSizeMake(kWidth, _previonsImageBottom + 20);
+    
 }
 
 

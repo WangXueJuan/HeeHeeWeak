@@ -11,8 +11,6 @@
 #import "DiscoverViewController.h"
 #import "MineViewController.h"
 
-
-
 @interface AppDelegate ()
 @end
 

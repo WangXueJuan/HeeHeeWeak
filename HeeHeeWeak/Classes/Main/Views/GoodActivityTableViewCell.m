@@ -16,8 +16,9 @@
 @property (weak, nonatomic) IBOutlet UIImageView *ageImageView;
 @property (weak, nonatomic) IBOutlet UILabel *activityPriceLabel;
 @property (weak, nonatomic) IBOutlet UILabel *ageLabel;
+@property (weak, nonatomic) IBOutlet UILabel *loveLabel;
 
-@property (weak, nonatomic) IBOutlet UIButton *loveButton;
+
 
 @end
 
@@ -36,7 +37,9 @@
     self.activityPriceLabel.text = goodModel.price;
     self.activityTitleLabel.text = goodModel.title;
     [self.headImageView sd_setImageWithURL:[NSURL URLWithString:goodModel.image] placeholderImage:nil];
-//    [self.loveButton setTitle:goodModel.counts forState:UIControlStateNormal];
+    self.headImageView.layer.cornerRadius = 18;
+    self.headImageView.clipsToBounds = YES;
+    self.loveLabel.text = [NSString stringWithFormat:@"%@",goodModel.counts];
   
 
 

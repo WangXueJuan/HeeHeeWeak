@@ -11,6 +11,7 @@
 #import "GoodActivityTableViewCell.h"
 #import "HWTools.h"
 #import <AFNetworking/AFHTTPSessionManager.h>
+#import "ActivityDetailViewController.h"
 @interface GoodActivityViewController ()<UITableViewDataSource, UITableViewDelegate, PullingRefreshTableViewDelegate>
 
 {
@@ -59,7 +60,11 @@
 #pragma mark -----------------------  UITableViewDelegate
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-
+    UIStoryboard *storyBoard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    ActivityDetailViewController *activityVC = [storyBoard instantiateViewControllerWithIdentifier:@"activityDetailVC"];
+    GoodActivityModel *model = self.acArray[indexPath.row];
+    activityVC.activityId = model.activiId;
+    [self.navigationController pushViewController:activityVC animated:YES];
 
 }
 
@@ -69,8 +74,8 @@
         self.tableView = [[PullingRefreshTableView alloc] initWithFrame:CGRectMake(0, 0, kWidth, kHeight - 64) pullingDelegate:self];
         self.tableView.delegate = self;
         self.tableView.dataSource = self;
-        self.tableView.rowHeight = 100;
-        self.tableView.separatorColor = [UIColor clearColor];
+        self.tableView.rowHeight = 120;
+       
     }
     return _tableView;
 }
@@ -87,9 +92,10 @@
 
 }
 
-//tableView上拉刷新时调用
+//tableView上拉加载时调用
 -(void)pullingTableViewDidStartLoading:(PullingRefreshTableView *)tableView{
     _pageCount += 1;
+    self.refreshing = NO;
     [self performSelector:@selector(loadData) withObject:nil afterDelay:1.0];
     
 
@@ -118,6 +124,13 @@
         if ([status isEqualToString:@"success"] && code == 0) {
             NSDictionary *successDic = dict[@"success"];
             NSArray *acDataArray = successDic[@"acData"];
+            //下拉刷新的时候需要移除数组中的数据
+            if (self.refreshing) {
+                if (self.acArray.count > 0) {
+                    [self.acArray removeLastObject];
+                }
+            }
+            
             for (NSDictionary *dic in acDataArray) {
                 GoodActivityModel *goodMod = [[GoodActivityModel alloc] initWithDictionary:dic];
                 [self.acArray addObject:goodMod];

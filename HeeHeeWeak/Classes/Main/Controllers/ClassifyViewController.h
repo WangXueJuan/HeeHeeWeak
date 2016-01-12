@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface ClassifyViewController : UIViewController
+@property(nonatomic, strong) NSString *classfiyId;
+@property(nonatomic, assign) ClassifyListType classifyListType;
 
 @end

@@ -24,7 +24,7 @@
 
 
 - (void)backButtonAcyion:(UIButton *)button{
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 @end

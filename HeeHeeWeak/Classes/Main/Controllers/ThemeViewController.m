@@ -53,15 +53,8 @@
             self.themeView.dataDic = dic[@"success"];
             //导航栏标题
             self.navigationItem.title = dic[@"success"][@"title"];
-        } else {
-        
-        
         }
-        
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
-        WXJLog(@"error = %@",error);
-        
     }];
 
 }

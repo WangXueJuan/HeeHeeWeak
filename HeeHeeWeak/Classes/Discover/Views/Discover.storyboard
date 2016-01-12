@@ -14,9 +14,8 @@
                         <viewControllerLayoutGuide type="bottom" id="cOK-qE-TrI"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="yiY-4Q-x59">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="64" width="375" height="603"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="1" green="0.58664418289999998" blue="0.020641306259999999" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <navigationItem key="navigationItem" title="发 现" id="bCP-WW-WNc"/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
@@ -31,9 +30,10 @@
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="uS2-Jh-ceR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="4Vn-A4-eD2">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" translucent="NO" id="4Vn-A4-eD2">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="barTintColor" red="0.38431372549999998" green="0.85490196080000003" blue="0.85490196080000003" alpha="1" colorSpace="calibratedRGB"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                         </textAttributes>

@@ -143,8 +143,14 @@
             }
         }
     }
-    //给mainScrollView重新赋值它的高度
-    self.mainScrollView.contentSize = CGSizeMake(kWidth, _lastLabelBottom + 20);
+    if (_lastLabelBottom > _previonsImageBottom) {
+        //给mainScrollView重新赋值它的高度
+        self.mainScrollView.contentSize = CGSizeMake(kWidth, _lastLabelBottom + 20);
+    } else {
+        //给mainScrollView重新赋值它的高度
+        self.mainScrollView.contentSize = CGSizeMake(kWidth, _previonsImageBottom + 20);
+    }
+    
 }
 
 @end

@@ -18,6 +18,8 @@
 @property(nonatomic, strong) NSString *address;
 @property(nonatomic, strong) NSString *type;
 
+
 - (instancetype)initWithDictionary:(NSDictionary *)dic;
+
 
 @end
