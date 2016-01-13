@@ -64,8 +64,6 @@
         self.tableView.reachedTheEnd = NO;
         [self.tableView reloadData];
 
-        
-        
     } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
         [ProgressHUD showError:[NSString stringWithFormat:@"%@",error]];
     }];
@@ -129,6 +127,7 @@
 
 //下拉刷新
 -(void)pullingTableViewDidStartRefreshing:(PullingRefreshTableView *)tableView{
+    self.refreshing = YES;
     [self performSelector:@selector(getRequestData) withObject:nil afterDelay:1.0];
 
 }
@@ -145,6 +144,12 @@
 //手指结束拖动
 -(void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
     [self.tableView tableViewDidEndDragging:scrollView];
+}
+
+-(void)viewWillAppear:(BOOL)animated{
+    [self viewDidAppear:YES];
+    self.tabBarController.tabBar.hidden = NO;
+    
 }
 
 - (void)didReceiveMemoryWarning {

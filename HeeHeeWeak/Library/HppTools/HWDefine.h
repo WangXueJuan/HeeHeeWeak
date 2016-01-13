@@ -41,4 +41,11 @@ typedef NS_ENUM(NSInteger,ClassifyListType) {
 //首页 - 发现 接口
 #define kDiscoverList @"http://e.kumi.cn/app/found.php?_s_=a82c7d49216aedb18c04a20fd9b0d5b2&_t_=1451310230&channelid=appstore&cityid=1&lat=34.62172291944134&lng=112.4149512442411"
 
+
+//新浪微博分享
+#define kAppKey @"3571808311"
+#define kRedirectURL @"http://weibo.com/5038042875/profile?rightmod=1&wvr=6&mod=personinfo&is_all=1"
+#define kAppSecrect @"a08446ea00af742e5f1e34ae7179150f"
+
+
 #endif /* HWDefine_h */

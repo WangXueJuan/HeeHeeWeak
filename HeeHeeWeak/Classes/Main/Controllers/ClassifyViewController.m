@@ -418,7 +418,7 @@
         self.segMentControl.allowNoSelection = NO;
         self.segMentControl.frame = CGRectMake(0, 0, kWidth, 50);
         self.segMentControl.indicatorThickness = 4;
-        self.segMentControl.selectedSegmentIndex = self.classifyListType;
+        self.segMentControl.selectedSegmentIndex = self.classifyListType - 1;
         [self.view addSubview:self.segMentControl];
         //点击返回的是哪个按钮
         [self.segMentControl addTarget:self action:@selector(segmentCtrlValuechange:) forControlEvents:UIControlEventValueChanged];
