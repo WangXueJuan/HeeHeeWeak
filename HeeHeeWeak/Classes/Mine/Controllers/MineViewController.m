@@ -16,7 +16,7 @@
 @property(nonatomic, strong) NSArray *imageArray;
 @property(nonatomic, strong) NSMutableArray *titleArray;
 @property(nonatomic, strong) UILabel *nameLabel;
-
+@property(nonatomic, strong) UIView *sharView;
 @end
 
 @implementation MineViewController
@@ -137,6 +137,7 @@
 
 }
 
+//发送邮件
 - (void)sendEmail{
     Class mailClass = NSClassFromString(@" MFMailComposeViewController");
     if (mailClass != nil) {
@@ -166,6 +167,7 @@
     
 }
 
+//检查更新
 - (void)checkAppVersion{
     [ProgressHUD showSuccess:@"恭喜您，当前已是最新版本"];
 }
@@ -194,43 +196,43 @@
 
 - (void)share{
     UIWindow *window = [[UIApplication sharedApplication].delegate window];
-    UIView *sharView = [[UIView alloc] initWithFrame:CGRectMake(0, kHeight - 200, kWidth, 200)];
-    sharView.backgroundColor = [UIColor whiteColor];
-    [window addSubview:sharView];
+    self.sharView = [[UIView alloc] initWithFrame:CGRectMake(0, kHeight - 200, kWidth, 200)];
+    self.sharView.backgroundColor = [UIColor whiteColor];
+    [window addSubview:self.sharView];
     //新浪微博
     UIButton *weiboBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     weiboBtn.frame = CGRectMake(15, 10, 100, 80);
     [weiboBtn setImage:[UIImage imageNamed:@"sina_weibo"] forState:UIControlStateNormal];
-    [sharView addSubview:weiboBtn];
+    [self.sharView addSubview:weiboBtn];
     UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(15, 80, 100, 30)];
     label1.text = @"新浪微博";
     label1.textAlignment = NSTextAlignmentCenter;
-    [sharView addSubview:label1];
+    [self.sharView addSubview:label1];
     //朋友圈
     UIButton *friendBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     friendBtn.frame = CGRectMake(130, 10, 100, 80);
     [friendBtn setImage:[UIImage imageNamed:@"py_normal-1"] forState:UIControlStateNormal];
-    [sharView addSubview:friendBtn];
+    [self.sharView addSubview:friendBtn];
     UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(130, 80, 100, 30)];
     label2.text = @"朋友圈";
     label2.textAlignment = NSTextAlignmentCenter;
-    [sharView addSubview:label2];
+    [self.sharView addSubview:label2];
     //微信
     UIButton *weixinBtn = [UIButton buttonWithType:UIButtonTypeCustom];
    weixinBtn.frame = CGRectMake(245, 10, 100, 80);
     [weixinBtn setImage:[UIImage imageNamed:@"icon_pay_weixin"] forState:UIControlStateNormal];
-    [sharView addSubview:weixinBtn];
+    [self.sharView addSubview:weixinBtn];
     UILabel *label3 = [[UILabel alloc] initWithFrame:CGRectMake(245, 80, 100, 30)];
     label3.text = @"微 信";
     label3.textAlignment = NSTextAlignmentCenter;
-    [sharView addSubview:label3];
+    [self.sharView addSubview:label3];
     //remove
     UIButton *removeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     removeBtn.frame = CGRectMake(50, 135, 270, 40);
     [removeBtn setTitle:@"取消" forState:UIControlStateNormal];
     removeBtn.backgroundColor = [UIColor colorWithRed:98.0/255.0 green:220.0/255.0 blue:220.0/255.0 alpha:1.0];
     [removeBtn addTarget:self action:@selector(cancelAction:) forControlEvents:UIControlEventTouchUpInside];
-    [sharView addSubview:removeBtn];
+    [self.sharView addSubview:removeBtn];
 
     [UIView animateWithDuration:1.0 animations:^{
         
@@ -239,9 +241,9 @@
 
 }
 
-//点击移除按钮
+//点击取消按钮，移除这个视图
 - (void)cancelAction:(UIButton *)btn{
-    
+    [self.sharView removeFromSuperview];
 
 }
 
