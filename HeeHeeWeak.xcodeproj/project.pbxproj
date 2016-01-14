@@ -18,6 +18,8 @@
 		7A341CBF1C3CC06B00031233 /* HotActivityViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A341CBE1C3CC06B00031233 /* HotActivityViewController.m */; };
 		7A341CC21C3CC07900031233 /* GoodActivityViewController .m in Sources */ = {isa = PBXBuildFile; fileRef = 7A341CC11C3CC07900031233 /* GoodActivityViewController .m */; };
 		7A341CC81C3D207A00031233 /* UIViewController+Common.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A341CC71C3D207A00031233 /* UIViewController+Common.m */; };
+		7A4D10581C47383200A711AC /* SharView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4D10571C47383200A711AC /* SharView.m */; };
+		7A4D105B1C474DD500A711AC /* SharViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A4D105A1C474DD500A711AC /* SharViewController.m */; };
 		7A61F9DD1C462BE4009680AF /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A61F9DC1C462BE4009680AF /* MessageUI.framework */; };
 		7A61F9DF1C463DAB009680AF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7A61F9DE1C463DAB009680AF /* Assets.xcassets */; };
 		7A61F9ED1C465047009680AF /* libWeiboSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A61F9E11C465047009680AF /* libWeiboSDK.a */; };
@@ -69,6 +71,7 @@
 		7AAA00CC1C3A508B005500C2 /* Mine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AAA00CB1C3A508B005500C2 /* Mine.storyboard */; };
 		7AAA00D01C3A7669005500C2 /* MainTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AAA00CE1C3A7669005500C2 /* MainTableViewCell.m */; };
 		7AAA00D11C3A7669005500C2 /* MainTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7AAA00CF1C3A7669005500C2 /* MainTableViewCell.xib */; };
+		7ADBBBAB1C47ACC30088AD97 /* shar.png in Resources */ = {isa = PBXBuildFile; fileRef = 7ADBBBAA1C47ACC30088AD97 /* shar.png */; };
 		7AE912BB1C3BA086003B844A /* MainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AE912BA1C3BA086003B844A /* MainModel.m */; };
 		7AEB5C4C1C3E124000F2DC80 /* ActivityDetailView.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB5C4B1C3E124000F2DC80 /* ActivityDetailView.m */; };
 		7AEB5C511C3E4C2F00F2DC80 /* HWTools.m in Sources */ = {isa = PBXBuildFile; fileRef = 7AEB5C501C3E4C2F00F2DC80 /* HWTools.m */; };
@@ -98,6 +101,10 @@
 		7A341CC11C3CC07900031233 /* GoodActivityViewController .m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GoodActivityViewController .m"; sourceTree = "<group>"; };
 		7A341CC61C3D207A00031233 /* UIViewController+Common.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+Common.h"; sourceTree = "<group>"; };
 		7A341CC71C3D207A00031233 /* UIViewController+Common.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+Common.m"; sourceTree = "<group>"; };
+		7A4D10561C47383200A711AC /* SharView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharView.h; sourceTree = "<group>"; };
+		7A4D10571C47383200A711AC /* SharView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharView.m; sourceTree = "<group>"; };
+		7A4D10591C474DD500A711AC /* SharViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SharViewController.h; sourceTree = "<group>"; };
+		7A4D105A1C474DD500A711AC /* SharViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SharViewController.m; sourceTree = "<group>"; };
 		7A61F9DC1C462BE4009680AF /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		7A61F9DE1C463DAB009680AF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		7A61F9E11C465047009680AF /* libWeiboSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeiboSDK.a; sourceTree = "<group>"; };
@@ -181,6 +188,7 @@
 		7AAA00CD1C3A7669005500C2 /* MainTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainTableViewCell.h; sourceTree = "<group>"; };
 		7AAA00CE1C3A7669005500C2 /* MainTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainTableViewCell.m; sourceTree = "<group>"; };
 		7AAA00CF1C3A7669005500C2 /* MainTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MainTableViewCell.xib; sourceTree = "<group>"; };
+		7ADBBBAA1C47ACC30088AD97 /* shar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shar.png; sourceTree = "<group>"; };
 		7AE912B91C3BA086003B844A /* MainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainModel.h; sourceTree = "<group>"; };
 		7AE912BA1C3BA086003B844A /* MainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainModel.m; sourceTree = "<group>"; };
 		7AEB5C4A1C3E124000F2DC80 /* ActivityDetailView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActivityDetailView.h; sourceTree = "<group>"; };
@@ -255,6 +263,10 @@
 				7A341CC71C3D207A00031233 /* UIViewController+Common.m */,
 				7AEB5C551C3E5B6E00F2DC80 /* UIView+UIView_Extension.h */,
 				7AEB5C561C3E5B6E00F2DC80 /* UIView+UIView_Extension.m */,
+				7A4D10561C47383200A711AC /* SharView.h */,
+				7A4D10571C47383200A711AC /* SharView.m */,
+				7A4D10591C474DD500A711AC /* SharViewController.h */,
+				7A4D105A1C474DD500A711AC /* SharViewController.m */,
 			);
 			path = HppTools;
 			sourceTree = "<group>";
@@ -350,6 +362,7 @@
 			children = (
 				7AAA00AF1C3A4E36005500C2 /* Classes */,
 				7AAA00C61C3A4F87005500C2 /* Resources */,
+				7ADBBBAA1C47ACC30088AD97 /* shar.png */,
 				7A341CAA1C3CAE4600031233 /* Library */,
 				7AAA00981C3A1C3A005500C2 /* AppDelegate.h */,
 				7AAA00991C3A1C3A005500C2 /* AppDelegate.m */,
@@ -624,6 +637,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7A1459C11C449F4400DD405D /* ProgressHUD.bundle in Resources */,
+				7ADBBBAB1C47ACC30088AD97 /* shar.png in Resources */,
 				7A61F9EE1C465047009680AF /* WeiboSDK.bundle in Resources */,
 				7AAA00D11C3A7669005500C2 /* MainTableViewCell.xib in Resources */,
 				7AAA00C81C3A5064005500C2 /* Main.storyboard in Resources */,
@@ -714,6 +728,7 @@
 				7A341CC21C3CC07900031233 /* GoodActivityViewController .m in Sources */,
 				7AAA00C21C3A4E36005500C2 /* DiscoverViewController.m in Sources */,
 				7AAA00C41C3A4E36005500C2 /* MineViewController.m in Sources */,
+				7A4D10581C47383200A711AC /* SharView.m in Sources */,
 				7A9168181C451277007193BF /* DiscoverModel.m in Sources */,
 				7A8ED4351C43913D00EAC9EC /* VOSegmentedControl.m in Sources */,
 				7AA05C361C3FBE3E00076E61 /* GoodActivityModel.m in Sources */,
@@ -723,6 +738,7 @@
 				7A9CB6251C40E2F5009F321C /* HotActivityModel.m in Sources */,
 				7A341CB91C3CBF3E00031233 /* ThemeViewController.m in Sources */,
 				7AA05C2C1C3F9DC000076E61 /* PullingRefreshTableView.m in Sources */,
+				7A4D105B1C474DD500A711AC /* SharViewController.m in Sources */,
 				7A1459C21C449F4400DD405D /* ProgressHUD.m in Sources */,
 				7AEB5C4C1C3E124000F2DC80 /* ActivityDetailView.m in Sources */,
 				7AAA00971C3A1C3A005500C2 /* main.m in Sources */,
@@ -843,6 +859,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/HeeHeeWeak/Library/libWeiboSDK",
 					"$(PROJECT_DIR)/HeeHeeWeak/Library/WeiXinSDK",
+					"$(PROJECT_DIR)/HeeHeeWeak/Library/WXApi.h",
+					"$(PROJECT_DIR)/HeeHeeWeak/Library/libWeChatSDK.a",
+					"$(PROJECT_DIR)/HeeHeeWeak/Library/WXApiObject.h",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-125.HeeHeeWeak";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -865,6 +884,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/HeeHeeWeak/Library/libWeiboSDK",
 					"$(PROJECT_DIR)/HeeHeeWeak/Library/WeiXinSDK",
+					"$(PROJECT_DIR)/HeeHeeWeak/Library/WXApi.h",
+					"$(PROJECT_DIR)/HeeHeeWeak/Library/libWeChatSDK.a",
+					"$(PROJECT_DIR)/HeeHeeWeak/Library/WXApiObject.h",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-125.HeeHeeWeak";
 				PRODUCT_NAME = "$(TARGET_NAME)";

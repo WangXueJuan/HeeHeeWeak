@@ -27,7 +27,17 @@
 			<string>com.weibo</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>WB3571808311</string>
+				<string>WB1419276303</string>
+			</array>
+		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>com.weixin</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>wx363d417f14ca9a26</string>
 			</array>
 		</dict>
 	</array>

@@ -76,7 +76,7 @@
     AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
     manger.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [ProgressHUD show:@"加载中，请稍后..."];
-    [manger GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",kClassifyList,_pageCount,@(6)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manger GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",kClassifyList,(long)_pageCount,@(6)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
        
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [ProgressHUD showSuccess:@"数据加载完成"];
@@ -123,7 +123,7 @@
     manger.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     // typeid = 23 景点场馆
     [ProgressHUD show:@"加载中，请稍后..."];
-    [manger GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",kClassifyList,_pageCount,@(23)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manger GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",kClassifyList,(long)_pageCount,@(23)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
 
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
          [ProgressHUD showSuccess:@"数据加载完成"];
@@ -171,7 +171,7 @@
     AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
     manger.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [ProgressHUD show:@"加载中，请稍后..."];
-    [manger GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",kClassifyList,_pageCount,@(22)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manger GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",kClassifyList,(long)_pageCount,@(22)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         WXJLog(@"downloadProgress = %@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [ProgressHUD showSuccess:@"数据加载完成"];
@@ -219,7 +219,7 @@
     AFHTTPSessionManager *manger = [AFHTTPSessionManager manager];
     manger.responseSerializer.acceptableContentTypes = [NSSet setWithObject:@"text/html"];
     [ProgressHUD show:@"加载中，请稍后..."];
-    [manger GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",kClassifyList,_pageCount,@(21)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+    [manger GET:[NSString stringWithFormat:@"%@&page=%ld&typeid=%@",kClassifyList,(long)_pageCount,@(21)] parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
         WXJLog(@"downloadProgress = %@",downloadProgress);
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         [ProgressHUD showSuccess:@"数据加载完成"];

@@ -43,9 +43,13 @@ typedef NS_ENUM(NSInteger,ClassifyListType) {
 
 
 //新浪微博分享
-#define kAppKey @"3571808311"
-#define kRedirectURL @"http://weibo.com"
-#define kAppSecrect @"a08446ea00af742e5f1e34ae7179150f"
+#define kAppKey @"1419276303"
+#define kRedirectURL @"https://api.weibo.com/oauth2/default.html"
+#define kAppSecrect @"559e4b2f6483aecdcda3376acb26615c"
+
+//微信分享
+#define kWeiAppKey @"wx363d417f14ca9a26"
+#define kWeiAppSecrect @"d2ee1be9fdd63f1f40edd6bf22a75d2d"
 
 
 #endif /* HWDefine_h */

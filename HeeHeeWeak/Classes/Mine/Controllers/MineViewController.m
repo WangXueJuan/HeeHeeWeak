@@ -8,17 +8,17 @@
 
 #import "MineViewController.h"
 #import <SDWebImage/SDImageCache.h>
-#import <MessageUI/MessageUI.h>
 #import "ProgressHUD.h"
-#import "AppDelegate.h"
-#import "WeiboSDK.h"
-@interface MineViewController ()<UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
+#import <MessageUI/MessageUI.h>
+#import "SharView.h"
+@interface MineViewController ()<UITableViewDataSource, UITableViewDelegate,MFMailComposeViewControllerDelegate>
 @property(nonatomic, strong) UITableView *tableView;
 @property(nonatomic, strong) UIButton *headImageButton;
 @property(nonatomic, strong) NSArray *imageArray;
 @property(nonatomic, strong) NSMutableArray *titleArray;
 @property(nonatomic, strong) UILabel *nameLabel;
-@property(nonatomic, strong) UIView *sharView;
+
+
 @end
 
 @implementation MineViewController
@@ -99,11 +99,8 @@
     switch (indexPath.row) {
         case 0:{
             //清除缓存
-            SDImageCache *imageCache = [SDImageCache sharedImageCache];
-            [imageCache clearDisk];
-            [self.titleArray replaceObjectAtIndex:0 withObject:@"清除缓存"];
-            NSIndexPath *indePath = [NSIndexPath indexPathForRow:0 inSection:0];
-            [self.tableView reloadRowsAtIndexPaths:@[indePath] withRowAnimation:UITableViewRowAnimationFade];
+            [self clearImage];
+            [ProgressHUD showSuccess:@"已为您清楚完毕!"];
         }
             break;
         case 1:{
@@ -141,6 +138,18 @@
 
 }
 
+//清理图片缓存
+- (void)clearImage{
+
+    SDImageCache *imageCache = [SDImageCache sharedImageCache];
+    [imageCache clearDisk];
+    [self.titleArray replaceObjectAtIndex:0 withObject:@"清除缓存"];
+    NSIndexPath *indePath = [NSIndexPath indexPathForRow:0 inSection:0];
+    [self.tableView reloadRowsAtIndexPaths:@[indePath] withRowAnimation:UITableViewRowAnimationFade];
+    
+
+}
+
 //发送邮件
 - (void)sendEmail{
     Class mailClass = NSClassFromString(@" MFMailComposeViewController");
@@ -166,8 +175,6 @@
     } else {
         WXJLog(@"当前设备不能发送");
     }
-    
-    
     
 }
 
@@ -198,104 +205,13 @@
 
 }
 
+//调用分享
 - (void)share{
-    UIWindow *window = [[UIApplication sharedApplication].delegate window];
-    self.sharView = [[UIView alloc] initWithFrame:CGRectMake(0, kHeight - 200, kWidth, 200)];
-    self.sharView.backgroundColor = [UIColor colorWithRed:241.0 / 255.0 green:241.0 / 255.0  blue:241.0 / 255.0  alpha:1.0];
-    [window addSubview:self.sharView];
-    //新浪微博
-    UIButton *weiboBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    weiboBtn.frame = CGRectMake(15, 10, 100, 80);
-    [weiboBtn setImage:[UIImage imageNamed:@"sina_weibo"] forState:UIControlStateNormal];
-    weiboBtn.tag = 1;
-    [weiboBtn addTarget:self action:@selector(sharBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.sharView addSubview:weiboBtn];
-    UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(15, 80, 100, 30)];
-    label1.text = @"新浪微博";
-    label1.textAlignment = NSTextAlignmentCenter;
-    [self.sharView addSubview:label1];
-    //朋友圈
-    UIButton *friendBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    friendBtn.frame = CGRectMake(130, 10, 100, 80);
-    [friendBtn setImage:[UIImage imageNamed:@"py_normal-1"] forState:UIControlStateNormal];
-    [friendBtn addTarget:self action:@selector(sharBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    friendBtn.tag = 2;
-    [self.sharView addSubview:friendBtn];
-    UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(130, 80, 100, 30)];
-    label2.text = @"朋友圈";
-    label2.textAlignment = NSTextAlignmentCenter;
-    [self.sharView addSubview:label2];
-    //微信
-    UIButton *weixinBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-   weixinBtn.frame = CGRectMake(245, 10, 100, 80);
-    [weixinBtn setImage:[UIImage imageNamed:@"icon_pay_weixin"] forState:UIControlStateNormal];
-    weixinBtn.tag = 3;
-    [weixinBtn addTarget:self action:@selector(sharBtnAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.sharView addSubview:weixinBtn];
-    UILabel *label3 = [[UILabel alloc] initWithFrame:CGRectMake(245, 80, 100, 30)];
-    label3.text = @"微 信";
-    label3.textAlignment = NSTextAlignmentCenter;
-    [self.sharView addSubview:label3];
-    //remove
-    UIButton *removeBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    removeBtn.frame = CGRectMake(50, 135, 270, 40);
-    [removeBtn setTitle:@"取消" forState:UIControlStateNormal];
-    removeBtn.backgroundColor = [UIColor colorWithRed:98.0/255.0 green:220.0/255.0 blue:220.0/255.0 alpha:1.0];
-    [removeBtn addTarget:self action:@selector(cancelAction:) forControlEvents:UIControlEventTouchUpInside];
-    [self.sharView addSubview:removeBtn];
-
-    /*
-     animateWithDuration:1.0 animations:^ 默认会禁止手势，触摸，可以通过options来打开用户交互
-     */
-    UIViewAnimationOptions options = UIViewAnimationCurveLinear | UIViewAnimationOptionAllowUserInteraction;
-    
-    [UIView animateWithDuration:1.0 delay:0.0 options:options animations:^{
-        self.sharView.alpha = 1.0;
-    } completion:nil];
-   
-
+    SharView *shareView = [[SharView alloc] init];
+    [self.view addSubview:shareView];
 }
 
-//点击取消按钮，移除这个视图
-- (void)cancelAction:(UIButton *)btn{
-    [self.sharView removeFromSuperview];
 
-}
-
-//点击 朋友圈 微信 新浪微博 分享按钮
-- (void)sharBtnAction:(UIButton *)btn{
-    switch (btn.tag) {
-        case 1:{
-           AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
-           WBAuthorizeRequest *authRequest =[WBAuthorizeRequest request];
-            authRequest.redirectURI = kRedirectURL;
-            authRequest.scope = @"all";
-            
-            WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:[self messageToShare] authInfo:authRequest access_token:myDelegate.wbtoken];
-            
-            [WeiboSDK sendRequest:request];
-            
-            
-        }
-            break;
-        case 2:{
-            
-        }
-            break;
-        case 3:{
-            
-        }
-            break;
-    }
-}
-
-- (WBMessageObject *)messageToShare{
-    WBMessageObject *message = [WBMessageObject message];
-    message.text = NSLocalizedString(@"这个应用好好哦!!🌺，让你玩得开心，全家开心，嘻嘻乐周末，让您天天开心!快去下载和我一起玩吧!", nil);
-
-    return message;
-
-}
 
 #pragma mark -------------------------------- 自定义方法
 - (void)setupTableViewHeaderView{
