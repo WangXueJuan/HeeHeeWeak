@@ -10,6 +10,8 @@
 #import <SDWebImage/SDImageCache.h>
 #import <MessageUI/MessageUI.h>
 #import "ProgressHUD.h"
+#import "AppDelegate.h"
+#import "WeiboSDK.h"
 @interface MineViewController ()<UITableViewDataSource, UITableViewDelegate, MFMailComposeViewControllerDelegate>
 @property(nonatomic, strong) UITableView *tableView;
 @property(nonatomic, strong) UIButton *headImageButton;
@@ -35,6 +37,7 @@
     [self setupTableViewHeaderView];
 }
 
+//每次当页面将要重写出现的时候重新计算图片缓存大小
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
     //每次当页面将要重写出现的时候重新计算图片缓存大小
@@ -80,6 +83,7 @@
     cell.imageView.image = [UIImage imageNamed:self.imageArray[indexPath.row]];
     cell.textLabel.text = self.titleArray[indexPath.row];
     cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     return cell;
 }
@@ -197,12 +201,14 @@
 - (void)share{
     UIWindow *window = [[UIApplication sharedApplication].delegate window];
     self.sharView = [[UIView alloc] initWithFrame:CGRectMake(0, kHeight - 200, kWidth, 200)];
-    self.sharView.backgroundColor = [UIColor whiteColor];
+    self.sharView.backgroundColor = [UIColor colorWithRed:241.0 / 255.0 green:241.0 / 255.0  blue:241.0 / 255.0  alpha:1.0];
     [window addSubview:self.sharView];
     //新浪微博
     UIButton *weiboBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     weiboBtn.frame = CGRectMake(15, 10, 100, 80);
     [weiboBtn setImage:[UIImage imageNamed:@"sina_weibo"] forState:UIControlStateNormal];
+    weiboBtn.tag = 1;
+    [weiboBtn addTarget:self action:@selector(sharBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.sharView addSubview:weiboBtn];
     UILabel *label1 = [[UILabel alloc] initWithFrame:CGRectMake(15, 80, 100, 30)];
     label1.text = @"新浪微博";
@@ -212,6 +218,8 @@
     UIButton *friendBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     friendBtn.frame = CGRectMake(130, 10, 100, 80);
     [friendBtn setImage:[UIImage imageNamed:@"py_normal-1"] forState:UIControlStateNormal];
+    [friendBtn addTarget:self action:@selector(sharBtnAction:) forControlEvents:UIControlEventTouchUpInside];
+    friendBtn.tag = 2;
     [self.sharView addSubview:friendBtn];
     UILabel *label2 = [[UILabel alloc] initWithFrame:CGRectMake(130, 80, 100, 30)];
     label2.text = @"朋友圈";
@@ -221,6 +229,8 @@
     UIButton *weixinBtn = [UIButton buttonWithType:UIButtonTypeCustom];
    weixinBtn.frame = CGRectMake(245, 10, 100, 80);
     [weixinBtn setImage:[UIImage imageNamed:@"icon_pay_weixin"] forState:UIControlStateNormal];
+    weixinBtn.tag = 3;
+    [weixinBtn addTarget:self action:@selector(sharBtnAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.sharView addSubview:weixinBtn];
     UILabel *label3 = [[UILabel alloc] initWithFrame:CGRectMake(245, 80, 100, 30)];
     label3.text = @"微 信";
@@ -234,9 +244,14 @@
     [removeBtn addTarget:self action:@selector(cancelAction:) forControlEvents:UIControlEventTouchUpInside];
     [self.sharView addSubview:removeBtn];
 
-    [UIView animateWithDuration:1.0 animations:^{
-        
-    }];
+    /*
+     animateWithDuration:1.0 animations:^ 默认会禁止手势，触摸，可以通过options来打开用户交互
+     */
+    UIViewAnimationOptions options = UIViewAnimationCurveLinear | UIViewAnimationOptionAllowUserInteraction;
+    
+    [UIView animateWithDuration:1.0 delay:0.0 options:options animations:^{
+        self.sharView.alpha = 1.0;
+    } completion:nil];
    
 
 }
@@ -244,6 +259,41 @@
 //点击取消按钮，移除这个视图
 - (void)cancelAction:(UIButton *)btn{
     [self.sharView removeFromSuperview];
+
+}
+
+//点击 朋友圈 微信 新浪微博 分享按钮
+- (void)sharBtnAction:(UIButton *)btn{
+    switch (btn.tag) {
+        case 1:{
+           AppDelegate *myDelegate =(AppDelegate*)[[UIApplication sharedApplication] delegate];
+           WBAuthorizeRequest *authRequest =[WBAuthorizeRequest request];
+            authRequest.redirectURI = kRedirectURL;
+            authRequest.scope = @"all";
+            
+            WBSendMessageToWeiboRequest *request = [WBSendMessageToWeiboRequest requestWithMessage:[self messageToShare] authInfo:authRequest access_token:myDelegate.wbtoken];
+            
+            [WeiboSDK sendRequest:request];
+            
+            
+        }
+            break;
+        case 2:{
+            
+        }
+            break;
+        case 3:{
+            
+        }
+            break;
+    }
+}
+
+- (WBMessageObject *)messageToShare{
+    WBMessageObject *message = [WBMessageObject message];
+    message.text = NSLocalizedString(@"这个应用好好哦!!🌺，让你玩得开心，全家开心，嘻嘻乐周末，让您天天开心!快去下载和我一起玩吧!", nil);
+
+    return message;
 
 }
 

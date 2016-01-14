@@ -33,6 +33,8 @@
 		7A61FA001C46510A009680AF /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A61F9FF1C46510A009680AF /* CoreGraphics.framework */; };
 		7A61FA021C465146009680AF /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A61FA011C465146009680AF /* libz.tbd */; };
 		7A61FA041C465152009680AF /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A61FA031C465152009680AF /* libsqlite3.tbd */; };
+		7A61FA0A1C468CF5009680AF /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A61FA061C468CF5009680AF /* libWeChatSDK.a */; };
+		7A61FA0C1C468D24009680AF /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 7A61FA0B1C468D24009680AF /* libc++.tbd */; };
 		7A8ED4321C43913D00EAC9EC /* VOContentLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ED42B1C43913D00EAC9EC /* VOContentLayer.m */; };
 		7A8ED4331C43913D00EAC9EC /* VOIndicatorAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ED42D1C43913D00EAC9EC /* VOIndicatorAnimation.m */; };
 		7A8ED4341C43913D00EAC9EC /* VOSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = 7A8ED42F1C43913D00EAC9EC /* VOSegment.m */; };
@@ -121,6 +123,11 @@
 		7A61F9FF1C46510A009680AF /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		7A61FA011C465146009680AF /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		7A61FA031C465152009680AF /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
+		7A61FA061C468CF5009680AF /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		7A61FA071C468CF5009680AF /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		7A61FA081C468CF5009680AF /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		7A61FA091C468CF5009680AF /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		7A61FA0B1C468D24009680AF /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		7A8ED42A1C43913D00EAC9EC /* VOContentLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOContentLayer.h; sourceTree = "<group>"; };
 		7A8ED42B1C43913D00EAC9EC /* VOContentLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VOContentLayer.m; sourceTree = "<group>"; };
 		7A8ED42C1C43913D00EAC9EC /* VOIndicatorAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VOIndicatorAnimation.h; sourceTree = "<group>"; };
@@ -191,6 +198,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7A61FA0C1C468D24009680AF /* libc++.tbd in Frameworks */,
 				7A61FA041C465152009680AF /* libsqlite3.tbd in Frameworks */,
 				7A61FA021C465146009680AF /* libz.tbd in Frameworks */,
 				7A61FA001C46510A009680AF /* CoreGraphics.framework in Frameworks */,
@@ -205,6 +213,7 @@
 				7A61F9DD1C462BE4009680AF /* MessageUI.framework in Frameworks */,
 				7A61F9ED1C465047009680AF /* libWeiboSDK.a in Frameworks */,
 				2B667B3CB81C907B0A1573E5 /* libPods.a in Frameworks */,
+				7A61FA0A1C468CF5009680AF /* libWeChatSDK.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -224,6 +233,7 @@
 		7A341CAA1C3CAE4600031233 /* Library */ = {
 			isa = PBXGroup;
 			children = (
+				7A61FA051C468CF5009680AF /* WeiXinSDK */,
 				7A61F9E01C465047009680AF /* libWeiboSDK */,
 				7A1459BD1C449F4400DD405D /* ProgressHUD */,
 				7A8ED4361C43A85800EAC9EC /* ClassfiyPlist */,
@@ -266,6 +276,17 @@
 				7A61F9EC1C465047009680AF /* WeiboUser.h */,
 			);
 			path = libWeiboSDK;
+			sourceTree = "<group>";
+		};
+		7A61FA051C468CF5009680AF /* WeiXinSDK */ = {
+			isa = PBXGroup;
+			children = (
+				7A61FA061C468CF5009680AF /* libWeChatSDK.a */,
+				7A61FA071C468CF5009680AF /* WechatAuthSDK.h */,
+				7A61FA081C468CF5009680AF /* WXApi.h */,
+				7A61FA091C468CF5009680AF /* WXApiObject.h */,
+			);
+			path = WeiXinSDK;
 			sourceTree = "<group>";
 		};
 		7A8ED4291C43913D00EAC9EC /* VOSegmentedControl */ = {
@@ -509,6 +530,7 @@
 		883C9F8F291E4A61727993EA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				7A61FA0B1C468D24009680AF /* libc++.tbd */,
 				7A61FA031C465152009680AF /* libsqlite3.tbd */,
 				7A61FA011C465146009680AF /* libz.tbd */,
 				7A61F9FF1C46510A009680AF /* CoreGraphics.framework */,
@@ -820,6 +842,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HeeHeeWeak/Library/libWeiboSDK",
+					"$(PROJECT_DIR)/HeeHeeWeak/Library/WeiXinSDK",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-125.HeeHeeWeak";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -841,6 +864,7 @@
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/HeeHeeWeak/Library/libWeiboSDK",
+					"$(PROJECT_DIR)/HeeHeeWeak/Library/WeiXinSDK",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = "-125.HeeHeeWeak";
 				PRODUCT_NAME = "$(TARGET_NAME)";

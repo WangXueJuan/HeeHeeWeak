@@ -11,11 +11,16 @@
 #import "DiscoverViewController.h"
 #import "MineViewController.h"
 #import "WeiboSDK.h"
-@interface AppDelegate ()<WeiboSDKDelegate>
+#import "WBHttpRequest+WeiboShare.h"
+#import "WBHttpRequest+WeiboToken.h"
+@interface AppDelegate ()<WeiboSDKDelegate,WBHttpRequestDelegate>
+
 @end
 
 @implementation AppDelegate
-
+@synthesize wbtoken;
+@synthesize webCurrentUserID;
+@synthesize wbRefreshToken;
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
@@ -76,6 +81,68 @@
 
     return [WeiboSDK handleOpenURL:url delegate:self];
 }
+
+-(void)didReceiveWeiboRequest:(WBBaseRequest *)request{
+
+}
+
+-(void)didReceiveWeiboResponse:(WBBaseResponse *)response{
+    
+    if ([response isKindOfClass:WBSendMessageToWeiboResponse.class])
+    {
+        NSString *title = NSLocalizedString(@"恭喜您，分享成功!", nil);
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title
+                                                        message:nil
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
+                                              otherButtonTitles:nil];
+        WBSendMessageToWeiboResponse* sendMessageToWeiboResponse = (WBSendMessageToWeiboResponse*)response;
+        NSString* accessToken = [sendMessageToWeiboResponse.authResponse accessToken];
+        if (accessToken)
+        {
+            self.wbtoken = accessToken;
+        }
+        NSString* userID = [sendMessageToWeiboResponse.authResponse userID];
+        if (userID) {
+            self.webCurrentUserID = userID;
+        }
+        [alert show];
+    }
+    else if ([response isKindOfClass:WBAuthorizeResponse.class])
+    {
+        NSString *message = [NSString stringWithFormat:@"%@: %d\nresponse.userId: %@\nresponse.accessToken: %@\n%@: %@\n%@: %@", NSLocalizedString(@"响应状态", nil), (int)response.statusCode,[(WBAuthorizeResponse *)response userID], [(WBAuthorizeResponse *)response accessToken],  NSLocalizedString(@"响应UserInfo数据", nil), response.userInfo, NSLocalizedString(@"原请求UserInfo数据", nil), response.requestUserInfo];
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"认真结果"
+                                                        message:message
+                                                       delegate:nil
+                                              cancelButtonTitle:NSLocalizedString(@"确定", nil)
+                                              otherButtonTitles:nil];
+        
+        self.wbtoken = [(WBAuthorizeResponse *)response accessToken];
+        self.webCurrentUserID = [(WBAuthorizeResponse *)response userID];
+        self.wbRefreshToken = [(WBAuthorizeResponse *)response refreshToken];
+        [alert show];
+    }
+}
+
+//返回请求加载的结果
+-(void)request:(WBHttpRequest *)request didFinishLoadingWithResult:(NSString *)result{
+    NSString *title = nil;
+    UIAlertView *alert = nil;
+    title = @"收到网络回调";
+    alert = [[UIAlertView alloc] initWithTitle:title message:[NSString stringWithFormat:@"%@",result] delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [alert show];
+
+}
+
+//请求失败
+-(void)request:(WBHttpRequest *)request didFailWithError:(NSError *)error{
+    NSString *title = nil;
+    UIAlertView *alert = nil;
+    title = @"请求异常";
+    alert = [[UIAlertView alloc] initWithTitle:title message:[NSString stringWithFormat:@"%@",error] delegate:nil cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
+    [alert show];
+}
+
 
 -(BOOL)application:(UIApplication *)application handleOpenURL:(NSURL *)url{
     return [WeiboSDK handleOpenURL:url delegate:self];
